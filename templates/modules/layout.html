@@ -28,6 +28,7 @@
     }
     document.getElementById('base-script').remove();
   </script>
+  <link rel="preload" as="style" onload="this.rel='stylesheet'" th:href="${#theme.assets('/')+'/css/global.min.css' }">
 </head>
 <body>
 <div id="Butterfly" th:class="${page}">
