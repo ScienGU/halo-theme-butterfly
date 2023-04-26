@@ -4,19 +4,21 @@
  * @date: 2022/11/25
  * @fileName: theme
  */
+@import './functions.less';
 
 // 全局变量
 :root {
-  --selection-text-color: #00c4b6;
+  --font-size: 14px; // 字体大小
+  --scrollbar-color: var(--theme); // 滚动条颜色
+  --selection-text-color: #00c4b6; // 选中文本颜色
+  --hr-border: rgba(57, 197, 187, 0.5); // 分割线颜色
 }
 
+// 字体颜色
+.mode(
+  @attr:--font-color,
+  @light: #4c4948,
+  @dark: rgba(255, 255, 255, 0.7)
+);
 
-html {
-
-}
-
-
-html {
-
-}
 

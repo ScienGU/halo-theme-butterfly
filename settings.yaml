@@ -103,7 +103,7 @@ spec:
           name: random_img
           label: 随机图片链接
           placeholder: 请正确填写 随机图片链接
-          value: 'https://api.likepoems.com/img/aliyun/pc'
+          value: 'https://api.likepoems.com/img/pc'
           help: 自定义随机图API，用于填充没有设置封面的 ，免费 API 不会一直可用，请知悉
         - $formkit: attachment
           name: preload

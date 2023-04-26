@@ -1,0 +1,40 @@
+<script id="base-script" th:inline="javascript">
+  window.ThemeInfo = {
+    version:  /*[[${theme.spec.version}]]*/ '',
+    author:/*[[${theme.spec.author}]]*/ {},
+    github:/*[[${theme.spec.repo}]]*/ {}
+  };
+  const locDataTheme = localStorage.getItem('Butterfly-data-theme');
+  if (locDataTheme) {
+    document.querySelector('html').setAttribute('data-theme', locDataTheme);
+    window.dataTheme = locDataTheme;
+  } else {
+    window.dataTheme = document.querySelector('html').getAttribute('data-theme');
+  }
+  document.getElementById('base-script').remove();
+</script>
+
+<!--styles------------------------------------------>
+<style type="text/css" th:inline="css">
+  :root {
+    --main-max-width: /*[(${theme.config.style.content_max_width})]*/ 1200px;
+    --cursor-default: url("[(${resource_url + '/plugins/cursor/simple/default.cur'})]"), auto;
+    --cursor-pointer: url("[(${resource_url + '/plugins/cursor/simple/pointer.cur'})]"), auto;
+    --body-background: #eaeaea;
+  }
+
+  html {
+    --theme: /*[(${theme.config.style.theme_color_light})]*/ #49b1f5;
+  }
+
+  html[data-theme=dark] {
+    --theme: /*[(${theme.config.style.theme_color_dark})]*/ #ff7242;
+  }
+
+</style>
+
+<!--links------------------------------------------>
+<link rel="preload stylesheet" as="style" th:if="${theme.config.style.font_family != 'no'}" th:href="${resource_url+'/font/'+theme.config.style.font_family+'.min.css'}">
+<link rel="preload stylesheet" as="style" th:href="${resource_url + '/plugins/fontawesome/fontawesome.min.css'}">
+<link rel="preload stylesheet" as="style" th:href="${resource_url + '/plugins/animate/animate.min.css'}">
+<link rel="preload stylesheet" as="style" th:href="${resource_url + '/css/global.min.css' + theme_version }">
