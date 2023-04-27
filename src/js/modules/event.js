@@ -5,9 +5,8 @@
  * @Description: 订阅发布
  */
 
-
 // js 事件订阅发布
-export default class Event {
+export default class useEvent {
   constructor() {
     this.events = {};
   }
@@ -19,7 +18,7 @@ export default class Event {
     if (!this.events[eventName]) {
       this.events[eventName] = [];
     }
-    
+
     this.events[eventName].push(fn);
   }
 
@@ -50,9 +49,4 @@ export default class Event {
     return this.events[eventName];
   }
 
-}
-
-// 创建事件
-export const createEvent = () => {
-  window.eventCore = new Event();
 }

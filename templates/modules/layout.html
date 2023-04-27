@@ -2,59 +2,39 @@
 <html lang="en"
       data-theme="light"
       xmlns:th="https://www.thymeleaf.org"
-      th:fragment="layout (page,title,fragmentHeader,fragmentMain)"
+      th:fragment="layout (page,head,header,main)"
       th:with="
       resource_url =${theme.config.other.enable_cdn_link ? theme.config.other.cdn_link : #theme.assets('/')},
       theme_version = ${'?v='+ theme.spec.version} 
       "
 >
 <head>
-  <title th:text="${title}"></title>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
-  <meta name="renderer" content="webkit">
-  <meta name="author" th:content="${site.title}">
-  <meta name="site" th:content="${site.url}">
-  <meta property="og:keywords" th:content="${site.seo.keywords}">
-  <meta property="og:description" th:content="${site.seo.description}">
-  <meta property="og:site_name" th:content="${site.title}">
-  <meta property="og:url" th:content="${site.url}">
-  <meta property="og:title" th:content="${site.title}">
-  <meta property="og:locale" content="zh_CN">
-  <meta property="og:type" content="website">
-  <meta property="twitter:partner" content="ogwp">
-  <meta name="format-detection" content="email=no">
-  <meta name="format-detection" content="telephone=no">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta http-equiv="Cache-Control" content="no-siteapp">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-  <meta http-equiv="x-dns-prefetch-control" content="on">
-  <link rel="apple-touch-icon" sizes="180x180" th:href="${site.logo}">
-  <link rel="shortcut icon" size="32x32" th:href="${site.logo}">
-  <link rel="canonical" th:href="${site.url}">
-  <link rel="dns-prefetch" th:href="${resource_url}">
-  <th:block th:replace="~{modules/styleScript}"></th:block>
+  <th:block th:replace="~{modules/head}"></th:block>
+  <th:block th:insert="${head}"></th:block>
 </head>
 <body>
 <div id="Butterfly" th:class="${page}">
 
-  <!--/* 头部--><!--*/-->
+  <!--头部-->
   <header
     class="header"
-    th:insert="${fragmentHeader}">
+    th:insert="${header}">
 
   </header>
 
-
-  <!--/* 主要部分--><!--*/-->
+  <!--主体-->
   <main
     th:class="'main'"
-    th:insert="${fragmentMain}">
+    th:insert="${main}">
   </main>
 
-
-  <!--/* 页脚--><!--*/-->
+  <!--页脚-->
   <th:block th:replace="~{modules/footer}"></th:block>
+
+  <!--js-->
+  <script type="text/javascript" th:src="${resource_url + '/plugins/jquery/jquery.min.js'}"></script>
+  <script type="text/javascript" th:src="${resource_url + '/plugins/lazyLoad/lazyLoad.min.js'}"></script>
+  <script type="text/javascript" th:src="${resource_url + '/js/global.min.js' + theme_version}"></script>
 
 </div>
 </body>

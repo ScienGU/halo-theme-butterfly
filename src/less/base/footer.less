@@ -1,0 +1,29 @@
+//页脚
+.footer {
+
+}
+
+//小部件
+.adsorption {
+  right: -58px;
+  bottom: 40px;
+  opacity: 0;
+  transition: opacity .5s, transform .5s;
+
+  &.active {
+    opacity: 1;
+    transform: translateX(-75px);
+  }
+
+  > button {
+    margin: 5px;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    background-color: var(--theme);
+    color: #fff;
+    font-size: 12px;
+    border-radius: 10px;
+    transition: background-color .3s;
+  }
+}

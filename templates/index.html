@@ -3,22 +3,116 @@
   xmlns:th="https://www.thymeleaf.org"
   th:replace="~{modules/layout :: layout (
   page = 'index',
-  title = ${site.title},
-  fragmentHeader = ~{::fragmentHeader},
-  fragmentMain = ~{::fragmentMain}
+  head = ~{::head},
+  header = ~{::header},
+  main = ~{::main}
   )}"
 >
 
-<!--头部-->
-<th:block th:fragment="fragmentHeader">
-
-
+<!--head-->
+<th:block th:fragment="head">
+  <title th:text="${site.title}"></title>
+  <link rel="preload stylesheet" as="style" th:href="${ resource_url + '/css/index.min.css' + theme_version}">
 </th:block>
 
-<!--主要部分-->
-<th:block th:fragment="fragmentMain">
+<!--头部-->
+<th:block th:fragment="header">
 
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</th:block>
 
+<!--主体-->
+<th:block th:fragment="main">
+
+  哈哈哈
 </th:block>
 
 </html>
